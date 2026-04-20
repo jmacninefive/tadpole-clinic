@@ -1,0 +1,16 @@
+<!--
+This should live in ~/.m2/settings.xml
+The public instance of artifactory is documented below for demonstration purposes 
+The project won't compile using it due to user permissions, so should use a private instance instead
+-->
+
+<settings>  
+  <mirrors>  
+    <mirror>  
+      <id>demo-artifactory</id>
+      <name>Public demo instance of artifactory</name>  
+      <url>https://demo.jfrog.io/artifactory/maven-remote/</url>
+      <mirrorOf>central</mirrorOf> <!-- https://repo.maven.apache.org/maven2/ -->
+    </mirror>  
+  </mirrors>  
+</settings>

@@ -1,3 +1,13 @@
+# Jack McMahon Interview Prep
+
+This repo is a fork of [spring-projects/spring-petclinic](https://github.com/spring-projects/spring-petclinic), created as part of a take home interview assignment for a DevOps position. The functionality of the application is unchanged.
+
+To build the docker image from the `Dockerfile` and run all associated backend services locally, please run `docker compose up` in the root of the repo. After a short wait, you should be able to access the application on <https://localhost:8080>. I have tested this on a machine running Windows 11 Home, with Docker Desktop 4.63.0.
+
+-----
+*ORIGINAL DOCUMENTATION FROM UPSTREAM REPO BELOW*
+-----
+
 # Spring PetClinic Sample Application [![Build Status](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml/badge.svg)](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml)[![Build Status](https://github.com/spring-projects/spring-petclinic/actions/workflows/gradle-build.yml/badge.svg)](https://github.com/spring-projects/spring-petclinic/actions/workflows/gradle-build.yml)
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/spring-projects/spring-petclinic) [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=7517918)
