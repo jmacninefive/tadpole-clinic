@@ -19,3 +19,11 @@ services:
       - POSTGRES_PASSWORD=petclinic
       - POSTGRES_USER=petclinic
       - POSTGRES_DB=petclinic
+  clinic:
+    pull_policy: build
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: jmacninefive/tadpole-clinic:latest
+    ports:
+      - "8080:8080"
