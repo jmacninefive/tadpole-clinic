@@ -6,17 +6,11 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('Build and Test') {
             steps {
                 withDockerContainer(image: env.mavenImage) {
                     sh 'mvn clean'
                     sh 'mvn compile'
-                }
-            }
-        }
-        stage('Test') {
-            steps {
-                withDockerContainer(image: env.mavenImage) {
                     sh 'mvn test'
                 }
             }

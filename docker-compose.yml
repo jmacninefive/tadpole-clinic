@@ -26,4 +26,4 @@ services:
       dockerfile: Dockerfile
     image: jmacninefive/tadpole-clinic:latest
     ports:
-      - "8080:8080"
+      - "8000:8080"
