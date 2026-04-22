@@ -1,8 +1,39 @@
 # Jack McMahon Interview Prep
 
-This repo is a fork of [spring-projects/spring-petclinic](https://github.com/spring-projects/spring-petclinic), created as part of a take home interview assignment for a DevOps position. The functionality of the application is unchanged.
+This repo is a fork of [spring-projects/spring-petclinic](https://github.com/spring-projects/spring-petclinic),
+created as part of a take home interview assignment for a DevOps position.
+The functionality of the application is unchanged.
 
-To build the docker image from the `Dockerfile` and run all associated backend services locally, please run `docker compose up` in the root of the repo. After a short wait, you should be able to access the application on <https://localhost:8080>. I have tested this on a machine running Windows 11 Home, with Docker Desktop 4.63.0.
+The full list of files I edited or created as part of this exercise were:
+
+- [Dockerfile](./Dockerfile) - Building a image capable of running the petclinic service.
+- [docker-compose.yaml](./docker-compose.yml) - Adding the `clinic` service for local testing.
+- [docker-compose-infra.yaml](./docker-compose-infra.yaml) - Defining a local instance of Jenkins with support for Docker pipelines via Docker-in-Docker.
+This was derived from the official Jenkins docker install docs [here](https://www.jenkins.io/doc/book/installing/docker/).
+- [Dockerfile.jenkins](./Dockerfile.jenkins) - Modifying the official Jenkins LTS image with prerequisite plugins and the Docker CLI.
+- [.groovylintrc.json](./.groovylintrc.json) - Some standard linting rules I use in my IDE to keep Jenkins pipelines maintainable.
+- [Jenkinsfile](./Jenkinsfile) - Our pipeline definition to build the project, run tests and create a docker image.
+Note that this makes use of the `withDockerContainer` step, which is provided by the [docker workflow plugin](https://www.jenkins.io/doc/pipeline/steps/docker-workflow/).
+- [settings.xml](./settings.xml) - An example of the user settings to configure Maven to pull packages from Artifactory instead of Maven Central.
+Due to user permissions, I was unable to compile the project locally pointing to the public demo instance of Artifactory at <https://demo.jfrog.io/artifactory/maven-remote/>.
+Attempts to set up local instances of Artifactory OSS and JCR via [docker compose](https://docs.jfrog.com/installation/docs/docker) which could be used instead have so far proven unfruitful.
+
+To easily build and run the docker image locally from the `Dockerfile`, please run the command below in the root of the repo.
+
+```sh
+docker compose -f 'docker-compose.yml' up -d 'clinic'
+```
+
+After a short wait, you should be able to access the application on <https://localhost:8000>. I have tested this on a machine running Windows 11 Home, with Docker Desktop 4.63.0.
+
+Should you require an instance of Jenkins capable of testing the `Jenkinsfile`, you could use the same images I did with the command below.
+Note this will require some fine-tuning on your machine, as it uses local Windows paths for persistent volumes that may not exist.
+
+```sh
+docker compose -f 'docker-compose-infra.yml' up -d
+```
+
+Please review the Jenkins official documentation [here](https://www.jenkins.io/doc/book/installing/docker/#setup-wizard) for further guidance on the initial setup procedure.
 
 -----
 *ORIGINAL DOCUMENTATION FROM UPSTREAM REPO BELOW*
