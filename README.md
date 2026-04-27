@@ -7,8 +7,8 @@ The functionality of the application is unchanged.
 The full list of files I edited or created as part of this exercise were:
 
 - [Dockerfile](./Dockerfile) - Building a image capable of running the petclinic service.
-- [docker-compose.yaml](./docker-compose.yml) - Adding the `clinic` service for local testing.
-- [docker-compose-infra.yaml](./docker-compose-infra.yaml) - Defining a local instance of Jenkins with support for Docker pipelines via Docker-in-Docker.
+- [docker-compose.yml](./docker-compose.yml) - Adding the `clinic` service for local testing.
+- [docker-compose-infra.yml](./docker-compose-infra.yml) - Defining a local instance of Jenkins with support for Docker pipelines via Docker-in-Docker.
 This was derived from the official Jenkins docker install docs [here](https://www.jenkins.io/doc/book/installing/docker/).
 - [Dockerfile.jenkins](./Dockerfile.jenkins) - Modifying the official Jenkins LTS image with prerequisite plugins and the Docker CLI.
 - [.groovylintrc.json](./.groovylintrc.json) - Some standard linting rules I use in my IDE to keep Jenkins pipelines maintainable.
